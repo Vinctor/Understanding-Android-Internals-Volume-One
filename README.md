@@ -1,3 +1,19 @@
-# simple
+#本书主要内容
+全书一共10章，其中一些重要章节中还设置了“拓展思考”部分。这十章的主要内容是：
+-第1章介绍了阅读本书所需要做的一些准备工作，包括对Android整个系统架构的认识，以及Android开发环境和源码阅读环境的搭建等。
+-第2章通过Android源码中的一处实例深入地介绍了JNI技术。
+-第3章围绕init进程，介绍了如何解析init.rc以启动Zygote以及属性服务（property service）工作的原理。
+-第4章剖析了zygote以及system_server进程的工作原理。本章的拓展思考部分，讨论了Andorid启动速度、虚拟机heapsize大小调整问题以及“看门狗”的工作原理。
+-第5章讲解了Android源码中常用的类，如sp、wp、RefBase、Thread类、同步类、Java中的Handler类以及Looper类。这些类是Android中常用和基本的类，只有掌握这些类的知识，后续的代码分析才可能做到游刃有余。
+-第6章以MediaServer为切入点，对Binder进行了较为全面的分析。本章拓展思考部分，讨论了和Binder有关的三个问题，它们分别是Binder和线程的关系、死亡通知以及匿名Service。笔者希望，读者通过本章学习，能更深入认识Binder的本质。
+-第7章阐述了Audio系统中三位重要成员AudioTrack、AudioFlinger和AudioPolicyService的工作原理。本章拓展思考部分，分析了AudioFlinger中DuplicatingThread的工作原理，并且和读者一道探讨了单元测试、ALSA、Desktop check等问题。通过对本章的学习，相信读者会对Audio系统有更深的理解。
+-第8章以Surface系统为主，分析了Activiy和Surface的关系、Surface和SurfaceFlinger的关系以及SurfaceFlinger的工作原理。本章的拓展思考部分，分析了Surface系统中数据传输控制对象的工作原理、有关ViewRoot的一些疑问，最后介绍了LayerBuffer的工作流程。这是全书中难度较大的一章，读者反复阅读和思考，或许能进一步深入理解Surface系统。
+-第9章分析了Vold和Rild、其中Vold负责Android平台中外部存储设备的管理，而Rild负责与射频通信有关的工作。本章的拓展思考部分，介绍了与嵌入式系统中存储有关的知识，还探讨了Rild以及Phone设计优化方面的问题。
+-第10章分析了多媒体系统中MediaScanner的工作原理。在本章的拓展思考部分中，笔者提出了几个问题，旨在激发读者对Android深入思考和学习的欲望。
 
-Wiki 示例空白仓库，直接 `fork` 该仓库然后填充内容即可。
+
+#本书面向的读者
+-Android应用开发工程师:刚接触Android系统的读者朋友，本书中关于Binder，sp和wp、Handler及Looper等常用类的分析，或许能帮助你迅速适应Android平台上的开发工作。
+-Android系统开发工程师:系统开发工程师常常需要深入理解系统的运转过程，而本书所涉及到的内容，可能正是他们在工作和学习中最想了解的。那些对具体模块（如Audio系统、Surface系统）感兴趣的读者，也可以单刀直入，阅读相关章节的内容。
+这里有必要提醒，要阅读此书，应具有与C++相关的基本知识，因为本书的大部分内容都集中在了Native层。
+
