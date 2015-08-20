@@ -1,1 +1,49 @@
-<div> <h1><span>2011-10-11第一次勘误</span></h1><div><span>特别感谢<span><span>jdxwind</span></span>网友的大力支持。对所有给本书提bug的童鞋们表示衷心的感谢。</span></div><div><span><br /></span></div><p>1. 目录XIII ——StartThread_Pool，joinThread_Pool。这两个单词中间的Pool没有空格。P149页中的目录项也需要修改。</p><p>2.    P15，模块_jni.so，中间多了空格。</p><p>3.   P388 代码，Mutext::Autolock 和下面的注释未予sp&lt;BufferSource&gt;一行对齐</p><p>4.     P233页：因为读者可能在等待可写的，改成：因为写者可能在等待可写的..</p><p>5.    P234页：offset是外界传入的基于userBase的一个偏移量，它的值是userBase+512，</p><p>这句话改为：offset的值是user(此时等于1024)，而userBase也是1024，所以.....</p><p>6.     P460页：在标题 MTD的介绍那，需要加上引用： 如下图所示</p><p><img src="images/0_1318339731uASj.gif.jpg" alt="0_1318339731uASj.gif.jpg" /><br /></p><p>7.     P101：如果c为1，则弱引用计数为0，这说明没用弱引用指向实际对象，.....改成没有弱引用...</p><p>8.     P325页下方，[--&gt;SurfaceControl.cpp]改成[--&gt;Surface.cpp]</p><p>9.     P174：第二行，AudioRcorder----改成AudioRecord</p><p>10.     P120页：这三条汇编指令，如果按正常的顺序连续执行，是没有问题的，但在多线程时就不能保证了。例如，线程1在执行第一条指令后，线程2由于调度的原因，抢先在线程1之前连续执行完了三条指令。这样，线程1继续执行指令时，它所使用的值就不是线程2更新后的值，而是之前的旧值。再对这个值进行操作便没有意义了。改成：这三条汇编指令，如果按正常的顺序连续执行，是没有问题的，但在多线程时就不能保证了。例如，线程1在执行第一条指令后，线程2由于调度的原因，抢先在线程1之前连续执行完了三条指令。这样，线程1继续执行指令时，它所使用的值却是线程2更新后的值，而非之前的值。再对这个值进行操作就有可能造成错误的结果。</p><p>11.     P133 代码：AutoMutex _l(gProcessMutex); 代码排版有问题；应该和下面的if语句对齐</p><p>12.    P97： mRefs是引用计数管理的关键类----这句话改成mRefs所属的weakref_impl类是引用计数管理的关键类</p><p>13.     P97：最后一个代码段：内容改成：</p><div><p>          weakref_impl(RefBase* base)</p><p>         :mStrong(INITIAL_STRONG_VALUE)//这里的注释不变</p><p>         ,mWeak(0)</p><p>        ,mBase(base)</p><p>        ,mFlags(0)</p><p>         {</p><p>       }</p></div><p>14.     P109页：我们先分析Threa 类----》改成我们先分析Thread类</p><p>15.     第五章，凡是出现Thread.cpp的，均换成Threads.cpp。包括前面的文件位置。谢谢</p><p>16.     P115：显示调用Mutex----》改成显式调用Mutex</p><p>17.     P434：代码段I：[--&gt;Ril.cpp]改成[--&gt;Ril_event.cpp]。本章的文件引用位置，增加一项：在Ril_event.h下增加一个Ril_event.cpp(hardware/ril/libril/Ril_event.cpp)</p><p>18.     P434：最后一行：下面这两行代码初始化一个FD为的s_wakeupfd_event的任务。此句中的s_wakeupfd_event改成s_fdWakeupRead</p><p>19.    P445页：代码段中：//SOCKET_NAME_RIL的值为”Ril”，改成值为”rild”。注意全为小写。</p><p>20.     P32：读者在编写代码时务小心对待，改成务必</p><p>21.     P50：zygote是通过fork和execv共同创建的，改成execve</p><p>22.     P90 Watch Dog的中文意思是看门狗。这里多了两个空格。紧接的---》后面的“程序经常<u>  </u>跑飞<u> （</u>比如说电磁干扰等）,----也多空格。</p><p>23.     P73：代码段：</p><div><p>             else if (index == 0)  前面增加 ......省略符号</p></div><p>24     P448：代码中的：AT命令由它发送给Rild，改成Ril命令由它发送给Rild。</p><p>25.     P455：封装了Rild对AT指令的处理函数：改成封装了Rild对Ril命令的处理函数。</p> <div> <p>版权声明：本文为博主原创文章，未经博主允许不得转载。</p> </div> </div>
+
+<h1><span>2011-10-11第一次勘误</span></h1>
+<div><span>特别感谢<span><span>jdxwind</span></span>网友的大力支持。对所有给本书提bug的童鞋们表示衷心的感谢。</span>
+</div>
+<div><span><br /></span></div>
+<p>1. 目录XIII ——StartThread_Pool，joinThread_Pool。这两个单词中间的Pool没有空格。P149页中的目录项也需要修改。</p>
+<p>2.    P15，模块_jni.so，中间多了空格。</p>
+<p>3.   P388 代码，Mutext::Autolock 和下面的注释未予sp&lt;BufferSource&gt;一行对齐</p>
+<p>4.     P233页：因为读者可能在等待可写的，改成：因为写者可能在等待可写的..</p>
+<p>5.    P234页：offset是外界传入的基于userBase的一个偏移量，它的值是userBase+512，</p>
+<p>这句话改为：offset的值是user(此时等于1024)，而userBase也是1024，所以.....</p>
+<p>6.     P460页：在标题 MTD的介绍那，需要加上引用： 如下图所示</p>
+<p><img src="images/0_1318339731uASj.gif.jpg" alt="0_1318339731uASj.gif.jpg" />
+    <br />
+</p>
+<p>7.     P101：如果c为1，则弱引用计数为0，这说明没用弱引用指向实际对象，.....改成没有弱引用...</p>
+<p>8.     P325页下方，[--&gt;SurfaceControl.cpp]改成[--&gt;Surface.cpp]</p>
+<p>9.     P174：第二行，AudioRcorder----改成AudioRecord</p>
+<p>10.     P120页：这三条汇编指令，如果按正常的顺序连续执行，是没有问题的，但在多线程时就不能保证了。例如，线程1在执行第一条指令后，线程2由于调度的原因，抢先在线程1之前连续执行完了三条指令。这样，线程1继续执行指令时，它所使用的值就不是线程2更新后的值，而是之前的旧值。再对这个值进行操作便没有意义了。改成：这三条汇编指令，如果按正常的顺序连续执行，是没有问题的，但在多线程时就不能保证了。例如，线程1在执行第一条指令后，线程2由于调度的原因，抢先在线程1之前连续执行完了三条指令。这样，线程1继续执行指令时，它所使用的值却是线程2更新后的值，而非之前的值。再对这个值进行操作就有可能造成错误的结果。</p>
+<p>11.     P133 代码：AutoMutex _l(gProcessMutex); 代码排版有问题；应该和下面的if语句对齐</p>
+<p>12.    P97： mRefs是引用计数管理的关键类----这句话改成mRefs所属的weakref_impl类是引用计数管理的关键类</p>
+<p>13.     P97：最后一个代码段：内容改成：</p>
+<div>
+    <p>          weakref_impl(RefBase* base)</p>
+    <p>         :mStrong(INITIAL_STRONG_VALUE)//这里的注释不变</p>
+    <p>         ,mWeak(0)</p>
+    <p>        ,mBase(base)</p>
+    <p>        ,mFlags(0)</p>
+    <p>         {</p>
+    <p>       }</p>
+</div>
+<p>14.     P109页：我们先分析Threa 类----》改成我们先分析Thread类</p>
+<p>15.     第五章，凡是出现Thread.cpp的，均换成Threads.cpp。包括前面的文件位置。谢谢</p>
+<p>16.     P115：显示调用Mutex----》改成显式调用Mutex</p>
+<p>17.     P434：代码段I：[--&gt;Ril.cpp]改成[--&gt;Ril_event.cpp]。本章的文件引用位置，增加一项：在Ril_event.h下增加一个Ril_event.cpp(hardware/ril/libril/Ril_event.cpp)</p>
+<p>18.     P434：最后一行：下面这两行代码初始化一个FD为的s_wakeupfd_event的任务。此句中的s_wakeupfd_event改成s_fdWakeupRead</p>
+<p>19.    P445页：代码段中：//SOCKET_NAME_RIL的值为”Ril”，改成值为”rild”。注意全为小写。</p>
+<p>20.     P32：读者在编写代码时务小心对待，改成务必</p>
+<p>21.     P50：zygote是通过fork和execv共同创建的，改成execve</p>
+<p>22.     P90 Watch Dog的中文意思是看门狗。这里多了两个空格。紧接的---》后面的“程序经常<u>  </u>跑飞<u> （</u>比如说电磁干扰等）,----也多空格。</p>
+<p>23.     P73：代码段：</p>
+<div>
+    <p>             else if (index == 0)  前面增加 ......省略符号</p>
+</div>
+<p>24     P448：代码中的：AT命令由它发送给Rild，改成Ril命令由它发送给Rild。</p>
+<p>25.     P455：封装了Rild对AT指令的处理函数：改成封装了Rild对Ril命令的处理函数。</p>
+<div>
+    <p>版权声明：本文为博主原创文章，未经博主允许不得转载。</p>
+</div>
