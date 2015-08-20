@@ -8,4 +8,3 @@
 - [深入理解 Surface 系统](surface.md)
 - [深入理解 Vold 和 Rild](vold-rild.md)
 - [深入理解 MediaScanner](mediascanner.md)
-- [勘误表](check.md)
