@@ -1,7 +1,7 @@
 - [阅读前的准备工作](prepare.md)
 - [深入理解 JNI](jni.md)
 - [深入理解 init](init.md)
-- [深入理解 zygote](zygote.md)
+- [深入理解 Zygote](zygote.md)
 - [深入理解常见类](classes.md)
 - [深入理解 Binder](binder.md)
 - [深入理解 Audio 系统](audio.md)
